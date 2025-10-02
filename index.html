@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- http://127.0.0.1:8080 -->
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
@@ -10,7 +11,8 @@
     body { background: #111316 !important; color: #e0e0e0; }
     .navbar, .footer, .card, .hero, .section-title, .feature-icon { background: #181a1b !important; color: #e0e0e0 !important; }
     .navbar { border-bottom: 2px solid #ffc107; }
-    .navbar-brand img { filter: grayscale(1) brightness(0.8); }
+    /* .navbar-brand img { filter: grayscale(1) brightness(0.8); } */
+    .navbar-brand img { filter: none; }
     .mafia-logo {
       font-family: 'Oswald', 'Arial Black', sans-serif;
       font-size: 2.2rem;
@@ -43,6 +45,19 @@
       max-width: 320px;
       margin-bottom: 1rem;
     }
+    .text-muted {
+      color: white !important;
+    }
+    .list-unstyled.fs-5.mb-4 {
+      color: black !important;
+    }
+    .fw-bold_mb-3{
+      color: #000 !important;
+    }
+    .fw-bold{
+      color: #ffc107 !important;
+    }
+
   </style>
 </head>
 <body>
@@ -69,7 +84,7 @@
 </nav>
 
 <!-- HERO -->
-<header class="hero" style="background:url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;">
+<header class="hero" style="background:url('img/running3.png') center/cover no-repeat;">
   <div class="container py-5">
     <h1 class="display-3 fw-bold mb-3">Welcome to FitLife Gym</h1>
     <p class="lead mb-4">Transform your body and mind with our expert trainers, modern equipment, and science-based programs. Whether you're a beginner or an athlete, FitLife Gym is your partner in health and fitness.</p>
@@ -84,102 +99,102 @@
 </header>
 
 <!-- PROGRAM CARDS -->
-<section class="py-5">
-  <div class="container">
-  <h2 class="section-title text-center mb-4">Our Programs</h2>
-    <div class="row g-4">
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1571907480495-3a7d2b981326?q=80&w=1400&auto=format&fit=crop" alt="Weight Loss" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Fat Loss</span>
-            <h5 class="fw-bold">Weight Loss</h5>
-            <p class="text-muted">Lose weight safely with custom HIIT, cardio, and nutrition plans. Track progress and get expert support every step.</p>
-            <a href="weight-loss.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+  <section class="py-5">
+    <div class="container">
+    <h2 class="section-title text-center mb-4">Our Programs</h2>
+      <div class="row g-4">
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="img/help.jpg" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Fat Loss</span>
+              <h5 class="fw-bold">Weight Loss</h5>
+              <p class="text-muted" >Lose weight safely with custom HIIT, cardio, and nutrition plans. Track progress and get expert support every step.</p>
+              <a href="weight-loss.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1400&auto=format&fit=crop" alt="Weight Gain" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Hypertrophy</span>
-            <h5 class="fw-bold">Weight Gain</h5>
-            <p class="text-muted">Build muscle and strength with progressive overload, tailored nutrition, and expert coaching. Ideal for hard-gainers and athletes.</p>
-            <a href="weight-gain.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1546483875-ad9014c88eba?q=80&w=1400&auto=format&fit=crop" alt="Weight Gain" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Hypertrophy</span>
+              <h5 class="fw-bold">Weight Gain</h5>
+              <p class="text-muted">Build muscle and strength with progressive overload, tailored nutrition, and expert coaching. Ideal for hard-gainers and athletes.</p>
+              <a href="weight-gain.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?q=80&w=1400&auto=format&fit=crop" alt="Nutrition" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Fuel</span>
-            <h5 class="fw-bold">Nutrition</h5>
-            <p class="text-muted">Get a personalized meal plan for your goals—weight loss, muscle gain, or overall wellness. Our nutritionists guide you to success.</p>
-            <a href="nutrition.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1543353071-10c8ba85a904?q=80&w=1400&auto=format&fit=crop" alt="Nutrition" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Fuel</span>
+              <h5 class="fw-bold">Nutrition</h5>
+              <p class="text-muted">Get a personalized meal plan for your goals—weight loss, muscle gain, or overall wellness. Our nutritionists guide you to success.</p>
+              <a href="nutrition.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=1400&auto=format&fit=crop" alt="Personal Trainer" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">1-on-1</span>
-            <h5 class="fw-bold">Personal Trainer</h5>
-            <p class="text-muted">Work with certified trainers for custom workouts, motivation, and accountability. Achieve your goals faster and safer.</p>
-            <a href="personal-trainer.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1549476464-37392f717541?q=80&w=1400&auto=format&fit=crop" alt="Personal Trainer" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">1-on-1</span>
+              <h5 class="fw-bold">Personal Trainer</h5>
+              <p class="text-muted">Work with certified trainers for custom workouts, motivation, and accountability. Achieve your goals faster and safer.</p>
+              <a href="personal-trainer.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
           </div>
         </div>
-      </div>
-      <!-- New Cards -->
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1519864600265-abb23847ef2c?q=80&w=1400&auto=format&fit=crop" alt="Group Classes" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Community</span>
-            <h5 class="fw-bold">Group Classes</h5>
-            <p class="text-muted">Join energetic group workouts—Zumba, yoga, spinning, and more. Stay motivated and make new friends!</p>
-            <a href="contact.html" class="btn btn-outline-primary btn-sm">See Schedule</a>
+        <!-- New Cards -->
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="img/cycling.png" alt="Group Classes" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Community</span>
+              <h5 class="fw-bold">Group Classes</h5>
+              <p class="text-muted">Join energetic group workouts—Zumba, yoga, spinning, and more. Stay motivated and make new friends!</p>
+              <a href="group-classes.html" class="btn btn-outline-primary btn-sm">See Schedule</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1464983953574-0892a716854b?q=80&w=1400&auto=format&fit=crop" alt="Online Coaching" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Remote</span>
-            <h5 class="fw-bold">Online Coaching</h5>
-            <p class="text-muted">Train from anywhere with virtual sessions, progress tracking, and expert guidance. Flexible and effective!</p>
-            <a href="contact.html" class="btn btn-outline-primary btn-sm">Get Started</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="img/yoga1.jpg" alt="Online Coaching" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Remote</span>
+              <h5 class="fw-bold">Online Coaching</h5>
+              <p class="text-muted">Train from anywhere with virtual sessions, progress tracking, and expert guidance. Flexible and effective!</p>
+              <a href="online-coaching.html" class="btn btn-outline-primary btn-sm">Get Started</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?q=80&w=1400&auto=format&fit=crop" alt="Kids & Teens" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Youth</span>
-            <h5 class="fw-bold">Kids & Teens Fitness</h5>
-            <p class="text-muted">Fun, safe programs for children and teens. Build healthy habits early with certified youth trainers.</p>
-            <a href="contact.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1503676382389-4809596d5290?q=80&w=1400&auto=format&fit=crop" alt="Kids & Teens" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Youth</span>
+              <h5 class="fw-bold">Kids & Teens Fitness</h5>
+              <p class="text-muted">Fun, safe programs for children and teens. Build healthy habits early with certified youth trainers.</p>
+              <a href="kids-teens-fitness.html" class="btn btn-outline-primary btn-sm">Learn More</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="col-md-3">
-        <div class="card card-hover h-100" style="color:#181a1b;">
-          <img class="img-cover" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1400&auto=format&fit=crop" alt="Rehabilitation" />
-          <div class="card-body text-center">
-            <span class="badge badge-soft mb-2">Recovery</span>
-            <h5 class="fw-bold">Rehabilitation</h5>
-            <p class="text-muted">Specialized programs for injury recovery and mobility improvement. Work with experienced physiotherapists.</p>
-            <a href="contact.html" class="btn btn-outline-primary btn-sm">Book Session</a>
+        <div class="col-md-3">
+          <div class="card card-hover h-100" style="color:#181a1b;">
+            <img class="img-cover" src="https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=1400&auto=format&fit=crop" alt="Rehabilitation" />
+            <div class="card-body text-center">
+              <span class="badge badge-soft mb-2">Recovery</span>
+              <h5 class="fw-bold">Rehabilitation</h5>
+              <p class="text-muted">Specialized programs for injury recovery and mobility improvement. Work with experienced physiotherapists.</p>
+              <a href="rehabilitation.html" class="btn btn-outline-primary btn-sm">Book Session</a>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</section>
+  </section>
 
 <!-- FEATURES -->
 <section class="py-5 bg-light">
@@ -191,7 +206,7 @@
     <div class="row justify-content-center">
       <div class="col-md-6">
         <div class="coach-card p-4 text-center">
-          <img src="https://hips.hearstapps.com/hmg-prod/images/legacy-fre-image-placeholder-1648561116.png?crop=1.00xw:0.501xh;0.00102xw,0.225xh&resize=980:*" alt="Coach Nelly" />
+          <img src="img/pranaym.png" alt="Coach Nelly" />
           <h4 class="fw-bold mb-2">Nelly</h4>
           <p class="mb-2">Hip hop star, athlete, and fitness inspiration. Nelly is known for his discipline, loyalty, and ambition. His workout philosophy: "A great body is a gift to yourself—and only you can give it."<br>Specializes in military press, power sets, basketball cardio, and nutrition coaching.</p>
           <span class="badge badge-soft">Discipline • Leadership • Results</span>
@@ -207,7 +222,7 @@
         <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?q=80&w=1200&auto=format&fit=crop" alt="FitLife Gym Facility" class="img-fluid rounded-4 shadow-lg" />
       </div>
       <div class="col-md-6">
-        <h3 class="fw-bold mb-3">Why Choose FitLife Gym?</h3>
+        <h3 class="fw-bold_mb-3">Why Choose FitLife Gym?</h3>
         <ul class="list-unstyled fs-5 mb-4">
           <li>✔️ Modern equipment & clean facilities</li>
           <li>✔️ Certified, friendly trainers</li>
