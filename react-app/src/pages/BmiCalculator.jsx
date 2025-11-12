@@ -1,4 +1,4 @@
-import { useState, useMemo, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function BmiCalculator() {
@@ -13,15 +13,11 @@ export default function BmiCalculator() {
     { date: '2025-09-01', value: 27.1 },
     { date: '2025-10-01', value: 25.8 }
   ])
-  const [secondVideoSrc, setSecondVideoSrc] = useState('')
-
-  // persist bmiHistory and second video in localStorage
+  // persist bmiHistory in localStorage
   useEffect(() => {
     try {
       const raw = localStorage.getItem('fitlife_bmi_history')
       if (raw) setBmiHistory(JSON.parse(raw))
-      const v = localStorage.getItem('fitlife_bmi_video2')
-      if (v) setSecondVideoSrc(v)
     } catch (err) {
       // ignore
     }
@@ -33,11 +29,7 @@ export default function BmiCalculator() {
     } catch (err) {}
   }, [bmiHistory])
 
-  useEffect(() => {
-    try {
-      if (secondVideoSrc) localStorage.setItem('fitlife_bmi_video2', secondVideoSrc)
-    } catch (err) {}
-  }, [secondVideoSrc])
+  // (no second video persistence anymore)
 
   const calculateBMI = (e) => {
     e.preventDefault()
@@ -310,42 +302,7 @@ export default function BmiCalculator() {
               </div>
             </div>
 
-            <div className="col-md-6">
-              <div className="card border-warning h-100">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">Video 2 (Custom)</h5>
-                  <p className="text-muted small">Paste the YouTube embed URL or video ID below to load the second video.</p>
-                  <div className="mb-3 d-flex gap-2">
-                    <input className="form-control" placeholder="YouTube embed URL or ID" value={secondVideoSrc} onChange={(e) => setSecondVideoSrc(e.target.value)} />
-                    <button className="btn btn-warning" onClick={() => {
-                      // normalize simple ID to embed
-                      const val = secondVideoSrc.trim()
-                      if (!val) return
-                      // If user pasted full URL, try to extract ID
-                      const m = val.match(/(?:v=|\/embed\/|youtu.be\/)([A-Za-z0-9_-]{6,})/)
-                      const id = m ? m[1] : val
-                      setSecondVideoSrc(`https://www.youtube.com/embed/${id}`)
-                    }}>Load</button>
-                  </div>
-                  <div className="video-responsive">
-                    {secondVideoSrc ? (
-                      <iframe
-                        width="560"
-                        height="315"
-                        src={secondVideoSrc}
-                        title="Second video"
-                        frameBorder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerPolicy="strict-origin-when-cross-origin"
-                        allowFullScreen
-                      ></iframe>
-                    ) : (
-                      <div className="text-center text-muted py-5">No video loaded. Paste a YouTube link above and click Load.</div>
-                    )}
-                  </div>
-                </div>
-              </div>
-            </div>
+            {/* Removed second video as requested */}
           </div>
         </div>
       </section>

@@ -4,7 +4,7 @@ export default function Pricing() {
   const plans = [
     {
       name: 'Basic',
-      price: 49,
+      price: '₹4,999',
       period: 'month',
       features: [
         'Gym access during off-peak hours',
@@ -17,7 +17,7 @@ export default function Pricing() {
     },
     {
       name: 'Pro',
-      price: 99,
+      price: '₹12,999',
       period: 'month',
       features: [
         '24/7 Gym access',
@@ -32,7 +32,7 @@ export default function Pricing() {
     },
     {
       name: 'Elite',
-      price: 199,
+      price: '₹21,999',
       period: 'month',
       features: [
         'Everything in Pro',

@@ -1,8 +1,8 @@
 :root {
-  --primary-dark: #111316;
-  --secondary-dark: #181a1b;
-  --accent-yellow: #ffc107;
-  --text-light: #e0e0e0;
+  --primary-dark: #061324; /* deep navy */
+  --secondary-dark: #07182a; /* slightly lighter navy */
+  --accent-yellow: #0d6efd; /* modern blue accent (kept variable name for reuse) */
+  --text-light: #cfe8ff;
   --text-white: #ffffff;
 }
 
