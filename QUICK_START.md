@@ -125,7 +125,7 @@ Edit the CSS variables at the top of `src/styles/App.css`:
 :root {
   --primary-dark: #111316;        /* Background color */
   --secondary-dark: #181a1b;      /* Card background */
-  --accent-yellow: #ffc107;       /* Highlight color */
+  --accent-yellow: #FF6B35;       /* Highlight color (Fiery Orange) */
   --text-light: #e0e0e0;          /* Text color */
 }
 ```

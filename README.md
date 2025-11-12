@@ -146,7 +146,7 @@ Edit `src/styles/App.css` - CSS variables at the top:
 :root {
   --primary-dark: #111316;      /* Background */
   --secondary-dark: #181a1b;    /* Cards */
-  --accent-yellow: #ffc107;     /* Highlights */
+  --accent-yellow: #FF6B35;     /* Highlights (Fiery Orange) */
   --text-light: #e0e0e0;        /* Text */
   --text-white: #ffffff;        /* White text */
 }

@@ -91,7 +91,7 @@ export default function Home() {
           <h2 className="section-title">Why Choose FitLife Gym?</h2>
           <div className="row align-items-center">
             <div className="col-md-6">
-              <img src={yogaImg} alt="Yoga Class" className="img-fluid rounded-3" style={{ border: '3px solid #ffc107' }} />
+              <img src={yogaImg} alt="Yoga Class" className="img-fluid rounded-3" style={{ border: '3px solid #FF6B35' }} />
             </div>
             <div className="col-md-6">
               <h3 className="text-warning mb-3">Expert Guidance & Results</h3>

@@ -149,7 +149,7 @@ For those seeking overall wellness:
 
 4. **Professional Design**
    - Dark theme consistency
-   - Gold (#ffc107) accent color
+   - Fiery Orange (#FF6B35) accent color
    - Clear typography hierarchy
    - Mobile responsive
 
@@ -193,7 +193,7 @@ For those seeking overall wellness:
 
 ### Styling:
 - ✅ Dark theme (#111316 primary, #181a1b secondary)
-- ✅ Gold accents (#ffc107)
+- ✅ Fiery Orange accents (#FF6B35)
 - ✅ Responsive Bootstrap grid
 - ✅ Hover effects and animations
 - ✅ Professional color coding

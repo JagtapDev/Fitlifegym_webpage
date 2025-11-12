@@ -34,7 +34,7 @@ Your FitLife Gym website has been successfully converted to a modern React appli
 - `Rehabilitation.jsx` - Injury recovery and rehabilitation services
 
 ### 3. **Design & Styling**
-- Modern dark theme with gold (#ffc107) accents
+- Modern dark theme with fiery orange (#FF6B35) accents
 - Fully responsive design using Bootstrap 5
 - Custom CSS in `App.css` for enhanced styling
 - Consistent branding throughout all pages
@@ -210,7 +210,7 @@ Edit `src/styles/App.css` and modify the CSS variables:
 :root {
   --primary-dark: #111316;
   --secondary-dark: #181a1b;
-  --accent-yellow: #ffc107;
+  --accent-yellow: #FF6B35;
   --text-light: #e0e0e0;
   --text-white: #ffffff;
 }

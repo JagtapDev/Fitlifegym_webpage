@@ -1,8 +1,9 @@
 :root {
-  --primary-dark: #061324; /* deep navy */
-  --secondary-dark: #07182a; /* slightly lighter navy */
-  --accent-yellow: #0d6efd; /* modern blue accent (kept variable name for reuse) */
-  --text-light: #cfe8ff;
+  /* Premium & Motivational palette */
+  --primary-dark: #121212; /* Dark Gray (primary background) */
+  --secondary-dark: #1a1a1a; /* Slightly lighter dark for cards/nav */
+  --accent-yellow: #FF6B35; /* Fiery Orange (kept variable name for compatibility) */
+  --text-light: #E0E0E0; /* Light Silver for text */
   --text-white: #ffffff;
 }
 
@@ -107,7 +108,7 @@ body {
 
 .card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 48px rgba(255, 193, 7, 0.3);
+  box-shadow: 0 12px 48px rgba(255, 107, 53, 0.28);
 }
 
 .card-title {
@@ -136,7 +137,7 @@ body {
 
 .coach-card:hover {
   transform: translateY(-8px);
-  box-shadow: 0 12px 48px rgba(255, 193, 7, 0.4);
+  box-shadow: 0 12px 48px rgba(255, 107, 53, 0.36);
 }
 
 .coach-card img {
@@ -158,7 +159,7 @@ body {
   font-size: 2.5rem;
   margin-bottom: 2rem;
   text-align: center;
-  text-shadow: 0 2px 8px rgba(255, 193, 7, 0.3);
+  text-shadow: 0 2px 8px rgba(255, 107, 53, 0.18);
 }
 
 .section-subtitle {
@@ -178,9 +179,9 @@ body {
 }
 
 .btn-warning:hover {
-  background: #ffb300;
+  background: #ff8b5f;
   transform: scale(1.05);
-  box-shadow: 0 4px 15px rgba(255, 193, 7, 0.4);
+  box-shadow: 0 4px 15px rgba(255, 107, 53, 0.28);
 }
 
 .btn-outline-light {
@@ -194,6 +195,11 @@ body {
   color: var(--primary-dark) !important;
   border-color: var(--accent-yellow);
 }
+
+/* Make common Bootstrap "warning" utilities follow our accent */
+.text-warning { color: var(--accent-yellow) !important; }
+.border-warning { border-color: var(--accent-yellow) !important; }
+.bg-warning { background: var(--accent-yellow) !important; color: var(--primary-dark) !important; }
 
 /* Form Styles */
 .form-control,
@@ -209,7 +215,7 @@ body {
   background: var(--secondary-dark) !important;
   color: var(--text-light) !important;
   border-color: var(--accent-yellow) !important;
-  box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25) !important;
+  box-shadow: 0 0 0 0.2rem rgba(255, 107, 53, 0.18) !important;
 }
 
 .form-label {

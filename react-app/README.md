@@ -98,7 +98,7 @@ npm run preview
 The application uses a dark theme with gold accents. Customize colors in `src/styles/App.css`:
 - Primary Dark: `#111316`
 - Secondary Dark: `#181a1b`
-- Accent Yellow: `#ffc107`
+- Accent Color (Fiery Orange): `#FF6B35`
 - Text Light: `#e0e0e0`
 
 ### Images

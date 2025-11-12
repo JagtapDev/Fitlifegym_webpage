@@ -145,7 +145,7 @@ Choose from:
 
 ### Design
 - ✅ Modern dark theme
-- ✅ Gold accent color (#ffc107)
+- ✅ Fiery Orange accent color (#FF6B35)
 - ✅ Professional gradients
 - ✅ Smooth animations
 - ✅ Mobile-first responsive

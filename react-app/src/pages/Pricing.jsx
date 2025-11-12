@@ -58,11 +58,11 @@ export default function Pricing() {
           <div className="row g-4">
             {plans.map((plan, index) => (
               <div key={index} className="col-md-4">
-                <div className={`card text-center ${plan.popular ? '' : ''}`} style={plan.popular ? { border: '3px solid #ffc107' } : {}}>
-                  {plan.popular && <div style={{ background: '#ffc107', color: '#000', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}>MOST POPULAR</div>}
+                <div className={`card text-center ${plan.popular ? '' : ''}`} style={plan.popular ? { border: '3px solid #FF6B35' } : {}}>
+                  {plan.popular && <div style={{ background: '#FF6B35', color: '#000', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}>MOST POPULAR</div>}
                   <div className="card-body">
                     <h5 className="card-title text-warning">{plan.name}</h5>
-                    <h2 className="text-warning mb-1">${plan.price}</h2>
+                    <h2 className="text-warning mb-1">{plan.price}</h2>
                     <p className="text-muted">per {plan.period}</p>
                     <ul className="list-unstyled mt-4 mb-4">
                       {plan.features.map((feature, i) => (

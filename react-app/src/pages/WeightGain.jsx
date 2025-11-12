@@ -9,7 +9,7 @@ export default function WeightGain() {
           <h1 className="section-title">Weight Gain Programs</h1>
           <div className="row align-items-center">
             <div className="col-md-6">
-              <img src={gainImg} alt="Weight Gain" className="img-fluid rounded-3" style={{ border: '3px solid #ffc107' }} />
+              <img src={gainImg} alt="Weight Gain" className="img-fluid rounded-3" style={{ border: '3px solid #FF6B35' }} />
             </div>
             <div className="col-md-6">
               <h2 className="text-warning mb-3">Build Muscle, Gain Strength</h2>

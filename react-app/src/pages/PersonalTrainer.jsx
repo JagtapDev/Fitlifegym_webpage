@@ -64,7 +64,7 @@ export default function PersonalTrainer() {
             {trainers.map((trainer, index) => (
               <div key={index} className="col-md-4">
                 <div className="coach-card">
-                  <div style={{ width: '200px', height: '200px', margin: '0 auto', backgroundColor: '#333', borderRadius: '1rem', border: '2px solid #ffc107', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div style={{ width: '200px', height: '200px', margin: '0 auto', backgroundColor: '#333', borderRadius: '1rem', border: '2px solid #FF6B35', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                     <span style={{ fontSize: '3rem' }}>👨‍🏫</span>
                   </div>
                   <h5 className="mt-3">{trainer.name}</h5>
@@ -98,7 +98,7 @@ export default function PersonalTrainer() {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card text-center" style={{ border: '3px solid #ffc107' }}>
+              <div className="card text-center" style={{ border: '3px solid #FF6B35' }}>
                 <div className="card-body">
                   <h5 className="card-title text-warning">Popular</h5>
                   <h3 className="text-warning mb-3">$280</h3>

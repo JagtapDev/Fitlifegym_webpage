@@ -149,8 +149,8 @@ export default function BmiCalculator() {
                           <svg viewBox="0 0 300 140" preserveAspectRatio="none" className="bmi-chart">
                             <defs>
                               <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stopColor="#ffc107" stopOpacity="0.18" />
-                                <stop offset="100%" stopColor="#ffc107" stopOpacity="0.02" />
+                                <stop offset="0%" stopColor="#FF6B35" stopOpacity="0.18" />
+                                <stop offset="100%" stopColor="#FF6B35" stopOpacity="0.02" />
                               </linearGradient>
                             </defs>
                             <rect x="0" y="0" width="300" height="140" fill="transparent" rx="6" />
@@ -175,9 +175,9 @@ export default function BmiCalculator() {
                               return (
                                 <g>
                                   <path d={areaPath} fill="url(#areaGrad)" stroke="none" />
-                                  <polyline fill="none" stroke="#ffc107" strokeWidth="2" points={linePath} />
+                                  <polyline fill="none" stroke="#FF6B35" strokeWidth="2" points={linePath} />
                                   {points.map((p, idx) => (
-                                    <circle key={idx} cx={p.x} cy={p.y} r="3" fill="#ffc107" />
+                                    <circle key={idx} cx={p.x} cy={p.y} r="3" fill="#FF6B35" />
                                   ))}
                                 </g>
                               )

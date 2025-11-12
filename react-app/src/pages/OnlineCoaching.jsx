@@ -93,8 +93,8 @@ export default function OnlineCoaching() {
               </div>
             </div>
             <div className="col-md-4">
-              <div className="card text-center" style={{ border: '3px solid #ffc107' }}>
-                <div style={{ background: '#ffc107', color: '#000', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}>POPULAR</div>
+              <div className="card text-center" style={{ border: '3px solid #FF6B35' }}>
+                <div style={{ background: '#FF6B35', color: '#000', padding: '0.5rem', fontSize: '0.9rem', fontWeight: 'bold' }}>POPULAR</div>
                 <div className="card-body">
                   <h5 className="card-title text-warning">Premium</h5>
                   <h3 className="text-warning mb-3">$79</h3>

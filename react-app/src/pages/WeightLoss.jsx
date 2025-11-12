@@ -9,7 +9,7 @@ export default function WeightLoss() {
           <h1 className="section-title">Weight Loss Programs</h1>
           <div className="row align-items-center">
             <div className="col-md-6">
-              <img src={weightLossImg} alt="Weight Loss" className="img-fluid rounded-3" style={{ border: '3px solid #ffc107' }} />
+              <img src={weightLossImg} alt="Weight Loss" className="img-fluid rounded-3" style={{ border: '3px solid #FF6B35' }} />
             </div>
             <div className="col-md-6">
               <h2 className="text-warning mb-3">Achieve Your Weight Loss Goals</h2>
