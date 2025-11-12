@@ -272,6 +272,140 @@ body {
   background: var(--secondary-dark) !important;
 }
 
+/* Training Packages Styles */
+.training-packages {
+  background: var(--primary-dark);
+}
+
+.package-card {
+  background: var(--secondary-dark) !important;
+  border: 2px solid var(--accent-yellow) !important;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.package-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 10px 30px rgba(255, 193, 7, 0.3);
+}
+
+.price-display {
+  text-align: center;
+  padding: 1.5rem;
+  background: rgba(255, 193, 7, 0.1);
+  border-radius: 8px;
+}
+
+.price-display h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.hero-section {
+  border-bottom: 3px solid var(--accent-yellow);
+  background: linear-gradient(135deg, var(--secondary-dark), var(--primary-dark));
+}
+
+.hero-section h1 {
+  text-shadow: 0 2px 10px rgba(255, 193, 7, 0.5);
+}
+
+.strategies-section .card {
+  background: var(--secondary-dark) !important;
+  border: 2px solid var(--accent-yellow) !important;
+}
+
+.strategies-section .btn-link {
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+.strategies-section .btn-link:hover {
+  color: var(--text-white) !important;
+  background: rgba(255, 193, 7, 0.2);
+}
+
+.accordion-button {
+  background: var(--secondary-dark) !important;
+  border-color: var(--accent-yellow) !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background: rgba(255, 193, 7, 0.2) !important;
+  color: var(--accent-yellow) !important;
+}
+
+.accordion-body {
+  background: var(--secondary-dark) !important;
+  border-color: var(--accent-yellow) !important;
+}
+
+.accordion-item {
+  background: var(--secondary-dark) !important;
+  border: 1px solid var(--accent-yellow) !important;
+}
+
+/* Icon animations */
+.feature-icon {
+  transition: transform 0.3s ease;
+}
+
+.feature-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Table styling */
+.table {
+  border-color: var(--accent-yellow) !important;
+}
+
+.table-dark {
+  background-color: var(--secondary-dark) !important;
+}
+
+.table-dark td {
+  border-color: var(--accent-yellow) !important;
+}
+
+.table-warning {
+  background-color: rgba(255, 193, 7, 0.2) !important;
+  border-color: var(--accent-yellow) !important;
+}
+
+.btn-warning {
+  background-color: var(--accent-yellow) !important;
+  border-color: var(--accent-yellow) !important;
+  color: var(--primary-dark) !important;
+  font-weight: bold;
+}
+
+.btn-warning:hover {
+  background-color: #ffb300 !important;
+  box-shadow: 0 5px 20px rgba(255, 193, 7, 0.4);
+}
+
+.btn-outline-warning {
+  color: var(--accent-yellow) !important;
+  border-color: var(--accent-yellow) !important;
+}
+
+.btn-outline-warning:hover {
+  background-color: var(--accent-yellow) !important;
+  color: var(--primary-dark) !important;
+}
+
+.transition {
+  transition: transform 0.3s ease;
+}
+
+.rotate-180 {
+  transform: rotate(180deg);
+}
+
+.border-start {
+  border-left: 3px solid !important;
+}
+
 /* Responsive */
 @media (max-width: 768px) {
   .hero h1 {
@@ -285,4 +419,21 @@ body {
   .navbar-brand {
     font-size: 1.3rem;
   }
+
+  .package-card {
+    margin-bottom: 1rem;
+  }
+
+  .price-display h2 {
+    font-size: 2rem;
+  }
+
+  .table {
+    font-size: 0.85rem;
+  }
+
+  .cta-section h2 {
+    font-size: 1.5rem;
+  }
 }
+

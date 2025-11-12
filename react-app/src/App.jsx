@@ -15,6 +15,7 @@ import GroupClasses from './pages/GroupClasses'
 import KidsTeensFitness from './pages/KidsTeensFitness'
 import OnlineCoaching from './pages/OnlineCoaching'
 import Rehabilitation from './pages/Rehabilitation'
+import TrainingPackages from './pages/TrainingPackages'
 
 function App() {
   return (
@@ -30,6 +31,7 @@ function App() {
             <Route path="/personal-trainer" element={<PersonalTrainer />} />
             <Route path="/bmi-calculator" element={<BmiCalculator />} />
             <Route path="/pricing" element={<Pricing />} />
+            <Route path="/training-packages" element={<TrainingPackages />} />
             <Route path="/contact" element={<Contact />} />
             <Route path="/group-classes" element={<GroupClasses />} />
             <Route path="/kids-teens-fitness" element={<KidsTeensFitness />} />
