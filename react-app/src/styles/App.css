@@ -468,3 +468,21 @@ body {
 
 .bmi-history .small span { opacity: 0.9 }
 
+/* BMI page buttons */
+.bmi-history .btn-sm { padding: 0.25rem 0.6rem; font-size: 0.78rem }
+
+.card.border-warning.h-100 { background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(0,0,0,0.3)); }
+.card .card-title.text-warning { font-weight: 700 }
+
+.video-responsive { box-shadow: 0 8px 30px rgba(0,0,0,0.6); border-radius: 8px; overflow: hidden }
+
+/* Small niceties */
+.section-title { color: var(--accent-yellow); margin-bottom: 0.5rem }
+.section-subtitle { color: #cfcfcf; margin-bottom: 1rem }
+
+.feature-icon { font-size: 2rem }
+
+/* input + load button align */
+.card .form-control { background: rgba(255,255,255,0.02); border-color: rgba(255,193,7,0.15) }
+
+

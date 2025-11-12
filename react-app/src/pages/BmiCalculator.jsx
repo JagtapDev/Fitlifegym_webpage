@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react'
+import { useState, useMemo, useEffect } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function BmiCalculator() {
@@ -13,6 +13,31 @@ export default function BmiCalculator() {
     { date: '2025-09-01', value: 27.1 },
     { date: '2025-10-01', value: 25.8 }
   ])
+  const [secondVideoSrc, setSecondVideoSrc] = useState('')
+
+  // persist bmiHistory and second video in localStorage
+  useEffect(() => {
+    try {
+      const raw = localStorage.getItem('fitlife_bmi_history')
+      if (raw) setBmiHistory(JSON.parse(raw))
+      const v = localStorage.getItem('fitlife_bmi_video2')
+      if (v) setSecondVideoSrc(v)
+    } catch (err) {
+      // ignore
+    }
+  }, [])
+
+  useEffect(() => {
+    try {
+      localStorage.setItem('fitlife_bmi_history', JSON.stringify(bmiHistory))
+    } catch (err) {}
+  }, [bmiHistory])
+
+  useEffect(() => {
+    try {
+      if (secondVideoSrc) localStorage.setItem('fitlife_bmi_video2', secondVideoSrc)
+    } catch (err) {}
+  }, [secondVideoSrc])
 
   const calculateBMI = (e) => {
     e.preventDefault()
@@ -45,10 +70,14 @@ export default function BmiCalculator() {
     // add to history (useful to show previous graph)
     try {
       const rounded = Number(bmiValue.toFixed(1))
-      setBmiHistory((prev) => [
-        ...prev,
-        { date: new Date().toISOString().slice(0, 10), value: rounded }
-      ])
+      setBmiHistory((prev) => {
+        const next = [
+          ...prev,
+          { date: new Date().toISOString().slice(0, 10), value: rounded }
+        ]
+        // cap history to last 50 entries
+        return next.slice(-50)
+      })
     } catch (err) {
       // ignore
     }
@@ -125,52 +154,67 @@ export default function BmiCalculator() {
                       <div className="mt-4 bmi-history">
                         <h6 className="text-warning">BMI Progress (recent)</h6>
                         <div className="bmi-chart-wrap mt-2">
-                          <svg viewBox="0 0 300 120" preserveAspectRatio="none" className="bmi-chart">
-                            {/* background grid lines */}
+                          <svg viewBox="0 0 300 140" preserveAspectRatio="none" className="bmi-chart">
                             <defs>
-                              <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
-                                <stop offset="0%" stopColor="#222" stopOpacity="0.6" />
-                                <stop offset="100%" stopColor="#111" stopOpacity="0.4" />
+                              <linearGradient id="areaGrad" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stopColor="#ffc107" stopOpacity="0.18" />
+                                <stop offset="100%" stopColor="#ffc107" stopOpacity="0.02" />
                               </linearGradient>
                             </defs>
-                            <rect x="0" y="0" width="300" height="120" fill="url(#grad)" rx="6" />
-                            {/* horizontal lines */}
-                            {[0, 25, 50, 75, 100].map((y, i) => (
-                              <line key={i} x1="0" x2="300" y1={12 + i * 22} y2={12 + i * 22} stroke="#333" strokeWidth="0.5" />
+                            <rect x="0" y="0" width="300" height="140" fill="transparent" rx="6" />
+                            {/* horizontal guide lines */}
+                            {[0, 1, 2, 3, 4].map((i) => (
+                              <line key={i} x1="0" x2="300" y1={20 + i * 27} y2={20 + i * 27} stroke="#222" strokeWidth="0.6" />
                             ))}
-                            {/* polyline points */}
-                            <polyline
-                              fill="none"
-                              stroke="#ffc107"
-                              strokeWidth="2"
-                              points={(() => {
-                                const data = bmiHistory.slice(-8)
-                                if (data.length === 0) return ''
-                                const max = Math.max(...data.map((d) => d.value)) + 2
-                                const min = Math.min(...data.map((d) => d.value)) - 2
-                                const range = Math.max(1, max - min)
-                                return data.map((d, i) => {
-                                  const x = (i / (data.length - 1 || 1)) * 280 + 10
-                                  const y = 100 - ((d.value - min) / range) * 80 + 10
-                                  return `${x},${y}`
-                                }).join(' ')
-                              })()}
-                            />
-                            {/* circles */}
-                            {bmiHistory.slice(-8).map((d, i, arr) => {
-                              const max = Math.max(...arr.map((x) => x.value)) + 2
-                              const min = Math.min(...arr.map((x) => x.value)) - 2
+                            {/* area + line */}
+                            {(() => {
+                              const data = bmiHistory.slice(-8)
+                              if (data.length === 0) return null
+                              const max = Math.max(...data.map((d) => d.value)) + 2
+                              const min = Math.min(...data.map((d) => d.value)) - 2
                               const range = Math.max(1, max - min)
-                              const x = (i / (arr.length - 1 || 1)) * 280 + 10
-                              const y = 100 - ((d.value - min) / range) * 80 + 10
-                              return <circle key={i} cx={x} cy={y} r="3" fill="#ffc107" />
-                            })}
+                              const points = data.map((d, i) => {
+                                const x = (i / (data.length - 1 || 1)) * 280 + 10
+                                const y = 120 - ((d.value - min) / range) * 90 + 10
+                                return { x, y }
+                              })
+                              const linePath = points.map((p) => `${p.x},${p.y}`).join(' ')
+                              const areaPath = `M ${points[0].x} ${120} L ${points.map((p) => `${p.x} ${p.y}`).join(' L ')} L ${points[points.length - 1].x} 120 Z`
+                              return (
+                                <g>
+                                  <path d={areaPath} fill="url(#areaGrad)" stroke="none" />
+                                  <polyline fill="none" stroke="#ffc107" strokeWidth="2" points={linePath} />
+                                  {points.map((p, idx) => (
+                                    <circle key={idx} cx={p.x} cy={p.y} r="3" fill="#ffc107" />
+                                  ))}
+                                </g>
+                              )
+                            })()}
                           </svg>
                         </div>
-                        <div className="small text-muted mt-2">
-                          {bmiHistory.slice(-8).map((d, i) => (
-                            <span key={i} className="me-3">{d.date}: {d.value}</span>
-                          ))}
+                        <div className="d-flex justify-content-between align-items-center mt-2">
+                          <div className="small text-muted">
+                            {bmiHistory.slice(-8).map((d, i) => (
+                              <span key={i} className="me-3">{d.date}: {d.value}</span>
+                            ))}
+                          </div>
+                          <div>
+                            <button className="btn btn-sm btn-outline-warning me-2" onClick={() => {
+                              // export CSV
+                              const rows = [['date','bmi'], ...bmiHistory.map(r => [r.date, r.value])]
+                              const csv = rows.map(r => r.join(',')).join('\n')
+                              const blob = new Blob([csv], { type: 'text/csv' })
+                              const url = URL.createObjectURL(blob)
+                              const a = document.createElement('a')
+                              a.href = url
+                              a.download = 'bmi_history.csv'
+                              a.click()
+                              URL.revokeObjectURL(url)
+                            }}>Export CSV</button>
+                            <button className="btn btn-sm btn-danger" onClick={() => {
+                              if (confirm('Clear BMI history?')) setBmiHistory([])
+                            }}>Clear</button>
+                          </div>
                         </div>
                       </div>
                       <div className="mt-4">
@@ -269,19 +313,35 @@ export default function BmiCalculator() {
             <div className="col-md-6">
               <div className="card border-warning h-100">
                 <div className="card-body">
-                  <h5 className="card-title text-warning">Video 2 (Replace with your URL)</h5>
+                  <h5 className="card-title text-warning">Video 2 (Custom)</h5>
+                  <p className="text-muted small">Paste the YouTube embed URL or video ID below to load the second video.</p>
+                  <div className="mb-3 d-flex gap-2">
+                    <input className="form-control" placeholder="YouTube embed URL or ID" value={secondVideoSrc} onChange={(e) => setSecondVideoSrc(e.target.value)} />
+                    <button className="btn btn-warning" onClick={() => {
+                      // normalize simple ID to embed
+                      const val = secondVideoSrc.trim()
+                      if (!val) return
+                      // If user pasted full URL, try to extract ID
+                      const m = val.match(/(?:v=|\/embed\/|youtu.be\/)([A-Za-z0-9_-]{6,})/)
+                      const id = m ? m[1] : val
+                      setSecondVideoSrc(`https://www.youtube.com/embed/${id}`)
+                    }}>Load</button>
+                  </div>
                   <div className="video-responsive">
-                    {/* Placeholder iframe - replace the src with your second video URL when available */}
-                    <iframe
-                      width="560"
-                      height="315"
-                      src="https://www.youtube.com/embed/VIDEO_ID_HERE"
-                      title="Second video"
-                      frameBorder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerPolicy="strict-origin-when-cross-origin"
-                      allowFullScreen
-                    ></iframe>
+                    {secondVideoSrc ? (
+                      <iframe
+                        width="560"
+                        height="315"
+                        src={secondVideoSrc}
+                        title="Second video"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerPolicy="strict-origin-when-cross-origin"
+                        allowFullScreen
+                      ></iframe>
+                    ) : (
+                      <div className="text-center text-muted py-5">No video loaded. Paste a YouTube link above and click Load.</div>
+                    )}
                   </div>
                 </div>
               </div>
