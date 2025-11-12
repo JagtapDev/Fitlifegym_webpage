@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useMemo } from 'react'
 import { Link } from 'react-router-dom'
 
 export default function BmiCalculator() {
@@ -7,6 +7,12 @@ export default function BmiCalculator() {
   const [unit, setUnit] = useState('metric')
   const [bmi, setBmi] = useState(null)
   const [category, setCategory] = useState('')
+  // sample historical BMI data (date ISO, bmi value)
+  const [bmiHistory, setBmiHistory] = useState([
+    { date: '2025-08-01', value: 28.4 },
+    { date: '2025-09-01', value: 27.1 },
+    { date: '2025-10-01', value: 25.8 }
+  ])
 
   const calculateBMI = (e) => {
     e.preventDefault()
@@ -34,6 +40,17 @@ export default function BmiCalculator() {
       setCategory('Overweight')
     } else {
       setCategory('Obese')
+    }
+    
+    // add to history (useful to show previous graph)
+    try {
+      const rounded = Number(bmiValue.toFixed(1))
+      setBmiHistory((prev) => [
+        ...prev,
+        { date: new Date().toISOString().slice(0, 10), value: rounded }
+      ])
+    } catch (err) {
+      // ignore
     }
   }
 
@@ -104,6 +121,58 @@ export default function BmiCalculator() {
                         <h3 className={`${getBMIColor()} mb-2`}>BMI: {bmi}</h3>
                         <p className={`h5 ${getBMIColor()}`}>{category}</p>
                       </div>
+                      {/* BMI History Chart */}
+                      <div className="mt-4 bmi-history">
+                        <h6 className="text-warning">BMI Progress (recent)</h6>
+                        <div className="bmi-chart-wrap mt-2">
+                          <svg viewBox="0 0 300 120" preserveAspectRatio="none" className="bmi-chart">
+                            {/* background grid lines */}
+                            <defs>
+                              <linearGradient id="grad" x1="0" x2="0" y1="0" y2="1">
+                                <stop offset="0%" stopColor="#222" stopOpacity="0.6" />
+                                <stop offset="100%" stopColor="#111" stopOpacity="0.4" />
+                              </linearGradient>
+                            </defs>
+                            <rect x="0" y="0" width="300" height="120" fill="url(#grad)" rx="6" />
+                            {/* horizontal lines */}
+                            {[0, 25, 50, 75, 100].map((y, i) => (
+                              <line key={i} x1="0" x2="300" y1={12 + i * 22} y2={12 + i * 22} stroke="#333" strokeWidth="0.5" />
+                            ))}
+                            {/* polyline points */}
+                            <polyline
+                              fill="none"
+                              stroke="#ffc107"
+                              strokeWidth="2"
+                              points={(() => {
+                                const data = bmiHistory.slice(-8)
+                                if (data.length === 0) return ''
+                                const max = Math.max(...data.map((d) => d.value)) + 2
+                                const min = Math.min(...data.map((d) => d.value)) - 2
+                                const range = Math.max(1, max - min)
+                                return data.map((d, i) => {
+                                  const x = (i / (data.length - 1 || 1)) * 280 + 10
+                                  const y = 100 - ((d.value - min) / range) * 80 + 10
+                                  return `${x},${y}`
+                                }).join(' ')
+                              })()}
+                            />
+                            {/* circles */}
+                            {bmiHistory.slice(-8).map((d, i, arr) => {
+                              const max = Math.max(...arr.map((x) => x.value)) + 2
+                              const min = Math.min(...arr.map((x) => x.value)) - 2
+                              const range = Math.max(1, max - min)
+                              const x = (i / (arr.length - 1 || 1)) * 280 + 10
+                              const y = 100 - ((d.value - min) / range) * 80 + 10
+                              return <circle key={i} cx={x} cy={y} r="3" fill="#ffc107" />
+                            })}
+                          </svg>
+                        </div>
+                        <div className="small text-muted mt-2">
+                          {bmiHistory.slice(-8).map((d, i) => (
+                            <span key={i} className="me-3">{d.date}: {d.value}</span>
+                          ))}
+                        </div>
+                      </div>
                       <div className="mt-4">
                         <h5 className="text-warning">BMI Categories:</h5>
                         <ul className="list-unstyled small">
@@ -166,6 +235,57 @@ export default function BmiCalculator() {
 
           <div className="text-center mt-5">
             <Link to="/contact" className="btn btn-warning btn-lg">Schedule a Consultation</Link>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Resources Section */}
+      <section className="py-5 bg-dark">
+        <div className="container">
+          <h2 className="section-title text-warning">Helpful Videos</h2>
+          <p className="text-muted">Watch these short videos to learn about BMI, healthy weight strategies, and practical tips.</p>
+
+          <div className="row g-4">
+            <div className="col-md-6">
+              <div className="card border-warning h-100">
+                <div className="card-body">
+                  <h5 className="card-title text-warning">BMI & Healthy Weight (Video 1)</h5>
+                  <div className="video-responsive">
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/yBvJXMduo8k?si=4uv2e9P65eD69L0l"
+                      title="YouTube video player"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="col-md-6">
+              <div className="card border-warning h-100">
+                <div className="card-body">
+                  <h5 className="card-title text-warning">Video 2 (Replace with your URL)</h5>
+                  <div className="video-responsive">
+                    {/* Placeholder iframe - replace the src with your second video URL when available */}
+                    <iframe
+                      width="560"
+                      height="315"
+                      src="https://www.youtube.com/embed/VIDEO_ID_HERE"
+                      title="Second video"
+                      frameBorder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerPolicy="strict-origin-when-cross-origin"
+                      allowFullScreen
+                    ></iframe>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
