@@ -1,10 +1,9 @@
 import { Link } from 'react-router-dom'
-import runningImg from '../../img/running3.png'
-import yogaImg from '../../img/yoga1.jpg'
-import cyclingImg from '../../img/cycling.png'
-import top10Img from '../../img/top10.png'
 
 export default function Home() {
+  // Images will be copied to public/img/ folder
+  const runningImg = '/img/running3.png'
+  const yogaImg = '/img/yoga1.jpg'
   const services = [
     {
       title: 'Weight Loss Programs',

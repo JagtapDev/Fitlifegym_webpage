@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import logo from '../../web/logo.png'
 
 export default function Navbar() {
+  const logo = '/img/logo.png'
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
       <div className="container">

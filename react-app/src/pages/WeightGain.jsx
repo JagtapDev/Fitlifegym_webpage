@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
-import gainImg from '../../img/gain6.png'
 
 export default function WeightGain() {
+  const gainImg = '/img/gain6.png'
   return (
     <>
       <section className="py-5 bg-dark">
