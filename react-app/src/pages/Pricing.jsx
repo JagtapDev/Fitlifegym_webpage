@@ -78,41 +78,7 @@ export default function Pricing() {
         </div>
       </section>
 
-      <section className="py-5">
-        <div className="container">
-          <h2 className="section-title">Frequently Asked Questions</h2>
-          <div className="row">
-            <div className="col-md-6">
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">Can I change my plan?</h5>
-                  <p className="card-text text-muted">Yes! You can upgrade or downgrade your plan anytime with your next billing cycle.</p>
-                </div>
-              </div>
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">Is there a contract?</h5>
-                  <p className="card-text text-muted">No long-term contracts. Cancel anytime with 30 days notice.</p>
-                </div>
-              </div>
-            </div>
-            <div className="col-md-6">
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">Do you offer family plans?</h5>
-                  <p className="card-text text-muted">Yes! Family plans with special discounts are available. Contact us for details.</p>
-                </div>
-              </div>
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">What about free trial?</h5>
-                  <p className="card-text text-muted">Get a free 7-day trial to experience all our facilities and classes.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      {/* Frequently Asked Questions section removed as requested */}
 
       <section className="py-5 bg-dark">
         <div className="container text-center">

@@ -34,26 +34,25 @@ export default function Contact() {
             <div className="col-md-6">
               <div className="card mb-3">
                 <div className="card-body">
-                  <h5 className="card-title text-warning">📍 Location</h5>
-                  <p className="card-text text-muted">123 Main Street, Your City, State 12345</p>
-                </div>
-              </div>
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">📞 Phone</h5>
-                  <p className="card-text text-muted">+1 (234) 567-8900</p>
-                </div>
-              </div>
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">📧 Email</h5>
-                  <p className="card-text text-muted">info@fitlifegym.com</p>
-                </div>
-              </div>
-              <div className="card mb-3">
-                <div className="card-body">
-                  <h5 className="card-title text-warning">⏰ Hours</h5>
-                  <p className="card-text text-muted">Monday - Sunday: 5:00 AM - 11:00 PM</p>
+                  <h5 className="card-title text-warning">Contact Information</h5>
+                  <ul className="list-unstyled mb-0">
+                    <li className="mb-3">
+                      <h6 className="mb-1 text-warning">📍 Location</h6>
+                      <p className="text-muted mb-0">123 Main Street, Your City, State 12345</p>
+                    </li>
+                    <li className="mb-3">
+                      <h6 className="mb-1 text-warning">📞 Phone</h6>
+                      <p className="text-muted mb-0">+1 (234) 567-8900</p>
+                    </li>
+                    <li className="mb-3">
+                      <h6 className="mb-1 text-warning">📧 Email</h6>
+                      <p className="text-muted mb-0">info@fitlifegym.com</p>
+                    </li>
+                    <li>
+                      <h6 className="mb-1 text-warning">⏰ Hours</h6>
+                      <p className="text-muted mb-0">Monday - Sunday: 5:00 AM - 11:00 PM</p>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </div>
@@ -125,6 +124,27 @@ export default function Contact() {
                   <button type="submit" className="btn btn-warning w-100">Send Message</button>
                 </div>
               </form>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Google Map Embed - replace the query with your real address or use Maps Embed API with a key */}
+      <section className="pb-5">
+        <div className="container">
+          <div className="row">
+            <div className="col-12">
+              <h5 className="section-subtitle mb-3">Find Us</h5>
+              <div className="ratio ratio-16x9">
+                <iframe
+                  src="https://www.google.com/maps?q=123+Main+Street+Your+City&output=embed"
+                  style={{ border: 0 }}
+                  allowFullScreen=""
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="FitLife Gym Location"
+                ></iframe>
+              </div>
             </div>
           </div>
         </div>
